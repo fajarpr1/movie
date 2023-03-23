@@ -1,25 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './component/Navbar';
+import { BrowserRouter, HashRouter, Route, Router, routes} from 'react-router-dom';
+import Movie1 from './component/Movie1';
+import Addmovie from './component/Addmovie';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <BrowserRouter>
+     <Navbar></Navbar>
+    
+      <Route path='/Movie1' element={<Movie1/>}></Route>
+      <Route path='/addmovie' element={<Addmovie data={{moviename:'',director:'',language:'',genere:'',releaseyear:''}} 
+      method="post"/>}></Route>
+  
+          
+        
+  </BrowserRouter> 
+
+  </div>
   );
-}
+  }
 
 export default App;
